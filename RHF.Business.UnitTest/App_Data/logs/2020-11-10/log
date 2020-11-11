@@ -1,0 +1,394 @@
+2020-11-10 09:40:33.6667 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - MBookCategoryRepository被?例化
+2020-11-10 09:40:37.9060 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - TMemberRepository被?例化
+2020-11-10 09:40:38.6070 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - TBookRepository被?例化
+2020-11-10 09:40:39.0260 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - RBookCategoryRepository被?例化
+2020-11-10 09:40:55.7942 - Error - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - System.Data.Entity.Core.EntityException: 基になるプロバイダーが Open で失敗しました。 ---> System.Data.SqlClient.SqlException: SQL Server への接続を確立しているときにネットワーク関連またはインスタンス固有のエラーが発生しました。サーバーが見つからないかアクセスできません。インスタンス名が正しいこと、および SQL Server がリモート接続を許可するように構成されていることを確認してください。 (provider: Named Pipes Provider, error: 40 - SQL Server への接続を開けませんでした) ---> System.ComponentModel.Win32Exception: 指定されたファイルが見つかりません。
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   場所 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   場所 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   場所 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   場所 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   場所 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   場所 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   場所 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   場所 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   場所 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   場所 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   場所 System.Data.SqlClient.SqlConnection.Open()
+   場所 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   場所 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   場所 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   場所 System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   場所 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   場所 RHF.Core.Data.DbSession.Commit(Boolean validateOnSaveEnabled) 場所 C:\MyProjects\source\repos\FrameworkForReadHouse\RHF.Core\RHF.Core\Data\DbSession.cs:行 74
+2020-11-10 09:49:00.7125 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - MBookCategoryRepository被?例化
+2020-11-10 09:49:01.8204 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - TMemberRepository被?例化
+2020-11-10 09:49:01.8204 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - TBookRepository被?例化
+2020-11-10 09:49:01.8204 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - RBookCategoryRepository被?例化
+2020-11-10 09:49:02.1854 - Error - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - System.Data.Entity.Core.EntityException: 例外が発生しました。一時的なエラーの可能性があります。SQL Azure データベースに接続する場合は、SqlAzureExecutionStrategy の使用を検討してください。 ---> System.Data.Entity.Core.EntityException: 基になるプロバイダーが Open で失敗しました。 ---> System.Data.Entity.Core.EntityException: 例外が発生しました。一時的なエラーの可能性があります。SQL Azure データベースに接続する場合は、SqlAzureExecutionStrategy の使用を検討してください。 ---> System.Data.SqlClient.SqlException: サーバーとの接続を正常に確立しましたが、ログイン中にエラーが発生しました。 (provider: Shared Memory Provider, error: 0 - パイプの他端にプロセスがありません。) ---> System.ComponentModel.Win32Exception: パイプの他端にプロセスがありません。
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   場所 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   場所 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   場所 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   場所 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   場所 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   場所 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   場所 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   場所 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   場所 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   場所 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   場所 System.Data.SqlClient.SqlConnection.Open()
+   場所 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   場所 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   場所 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   場所 System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   場所 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   場所 RHF.Core.Data.DbSession.Commit(Boolean validateOnSaveEnabled) 場所 C:\MyProjects\source\repos\FrameworkForReadHouse\RHF.Core\RHF.Core\Data\DbSession.cs:行 74
+2020-11-10 10:55:11.5941 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - MBookCategoryRepository被?例化
+2020-11-10 10:55:27.6470 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - TMemberRepository被?例化
+2020-11-10 10:55:27.6470 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - TBookRepository被?例化
+2020-11-10 10:55:27.6470 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - RBookCategoryRepository被?例化
+2020-11-10 10:56:33.5509 - Error - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - System.Data.Entity.Core.EntityException: 例外が発生しました。一時的なエラーの可能性があります。SQL Azure データベースに接続する場合は、SqlAzureExecutionStrategy の使用を検討してください。 ---> System.Data.Entity.Core.EntityException: 基になるプロバイダーが Open で失敗しました。 ---> System.Data.Entity.Core.EntityException: 例外が発生しました。一時的なエラーの可能性があります。SQL Azure データベースに接続する場合は、SqlAzureExecutionStrategy の使用を検討してください。 ---> System.Data.SqlClient.SqlException: サーバーとの接続を正常に確立しましたが、ログイン中にエラーが発生しました。 (provider: Shared Memory Provider, error: 0 - パイプの他端にプロセスがありません。) ---> System.ComponentModel.Win32Exception: パイプの他端にプロセスがありません。
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   場所 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   場所 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   場所 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   場所 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   場所 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   場所 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   場所 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   場所 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   場所 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   場所 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   場所 System.Data.SqlClient.SqlConnection.Open()
+   場所 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   場所 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   場所 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   場所 System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   場所 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   場所 RHF.Core.Data.DbSession.Commit(Boolean validateOnSaveEnabled) 場所 C:\MyProjects\source\repos\FrameworkForReadHouse\RHF.Core\RHF.Core\Data\DbSession.cs:行 74
+2020-11-10 11:17:15.0250 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - MBookCategoryRepository被?例化
+2020-11-10 11:17:16.1420 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - TMemberRepository被?例化
+2020-11-10 11:17:16.1420 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - TBookRepository被?例化
+2020-11-10 11:17:16.1420 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - RBookCategoryRepository被?例化
+2020-11-10 11:26:44.8133 - Error - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - System.Data.Entity.Core.EntityException: 例外が発生しました。一時的なエラーの可能性があります。SQL Azure データベースに接続する場合は、SqlAzureExecutionStrategy の使用を検討してください。 ---> System.Data.Entity.Core.EntityException: 基になるプロバイダーが Open で失敗しました。 ---> System.Data.Entity.Core.EntityException: 例外が発生しました。一時的なエラーの可能性があります。SQL Azure データベースに接続する場合は、SqlAzureExecutionStrategy の使用を検討してください。 ---> System.Data.SqlClient.SqlException: サーバーとの接続を正常に確立しましたが、ログイン中にエラーが発生しました。 (provider: Shared Memory Provider, error: 0 - パイプの他端にプロセスがありません。) ---> System.ComponentModel.Win32Exception: パイプの他端にプロセスがありません。
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   場所 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   場所 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   場所 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   場所 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   場所 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   場所 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   場所 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   場所 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   場所 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   場所 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   場所 System.Data.SqlClient.SqlConnection.Open()
+   場所 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   場所 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   場所 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   場所 System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   場所 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   場所 RHF.Core.Data.DbSession.Commit(Boolean validateOnSaveEnabled) 場所 C:\MyProjects\source\repos\FrameworkForReadHouse\RHF.Core\RHF.Core\Data\DbSession.cs:行 74
+2020-11-10 11:52:25.6455 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - MBookCategoryRepository被?例化
+2020-11-10 11:59:46.4299 - Error - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - System.Data.Entity.Core.EntityException: 例外が発生しました。一時的なエラーの可能性があります。SQL Azure データベースに接続する場合は、SqlAzureExecutionStrategy の使用を検討してください。 ---> System.Data.Entity.Core.EntityException: 基になるプロバイダーが Open で失敗しました。 ---> System.Data.Entity.Core.EntityException: 例外が発生しました。一時的なエラーの可能性があります。SQL Azure データベースに接続する場合は、SqlAzureExecutionStrategy の使用を検討してください。 ---> System.Data.SqlClient.SqlException: サーバーとの接続を正常に確立しましたが、ログイン中にエラーが発生しました。 (provider: Shared Memory Provider, error: 0 - パイプの他端にプロセスがありません。) ---> System.ComponentModel.Win32Exception: パイプの他端にプロセスがありません。
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   場所 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   場所 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   場所 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   場所 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   場所 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   場所 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   場所 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   場所 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   場所 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   場所 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   場所 System.Data.SqlClient.SqlConnection.Open()
+   場所 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   場所 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   場所 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   場所 System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   場所 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   場所 RHF.Core.Data.DbSession.Commit(Boolean validateOnSaveEnabled) 場所 C:\MyProjects\source\repos\FrameworkForReadHouse\RHF.Core\RHF.Core\Data\DbSession.cs:行 74
+2020-11-10 12:10:11.0569 - Error - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - System.Data.Entity.Core.EntityException: 例外が発生しました。一時的なエラーの可能性があります。SQL Azure データベースに接続する場合は、SqlAzureExecutionStrategy の使用を検討してください。 ---> System.Data.Entity.Core.EntityException: 基になるプロバイダーが Open で失敗しました。 ---> System.Data.Entity.Core.EntityException: 例外が発生しました。一時的なエラーの可能性があります。SQL Azure データベースに接続する場合は、SqlAzureExecutionStrategy の使用を検討してください。 ---> System.Data.SqlClient.SqlException: サーバーとの接続を正常に確立しましたが、ログイン中にエラーが発生しました。 (provider: Shared Memory Provider, error: 0 - パイプの他端にプロセスがありません。) ---> System.ComponentModel.Win32Exception: パイプの他端にプロセスがありません。
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   場所 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   場所 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   場所 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   場所 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   場所 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   場所 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   場所 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   場所 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   場所 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   場所 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   場所 System.Data.SqlClient.SqlConnection.Open()
+   場所 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   場所 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   場所 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   場所 System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   場所 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   場所 RHF.Core.Data.DbSession.Commit(Boolean validateOnSaveEnabled) 場所 C:\MyProjects\source\repos\FrameworkForReadHouse\RHF.Core\RHF.Core\Data\DbSession.cs:行 75
+2020-11-10 12:24:31.8126 - Error - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - System.Data.Entity.Core.EntityException: 例外が発生しました。一時的なエラーの可能性があります。SQL Azure データベースに接続する場合は、SqlAzureExecutionStrategy の使用を検討してください。 ---> System.Data.Entity.Core.EntityException: 基になるプロバイダーが Open で失敗しました。 ---> System.Data.Entity.Core.EntityException: 例外が発生しました。一時的なエラーの可能性があります。SQL Azure データベースに接続する場合は、SqlAzureExecutionStrategy の使用を検討してください。 ---> System.Data.SqlClient.SqlException: サーバーとの接続を正常に確立しましたが、ログイン中にエラーが発生しました。 (provider: Shared Memory Provider, error: 0 - パイプの他端にプロセスがありません。) ---> System.ComponentModel.Win32Exception: パイプの他端にプロセスがありません。
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   場所 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   場所 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   場所 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   場所 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   場所 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   場所 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   場所 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   場所 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   場所 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   場所 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   場所 System.Data.SqlClient.SqlConnection.Open()
+   場所 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   場所 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   場所 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   場所 System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   場所 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   場所 RHF.Core.Data.DbSession.Commit(Boolean validateOnSaveEnabled) 場所 C:\MyProjects\source\repos\FrameworkForReadHouse\RHF.Core\RHF.Core\Data\DbSession.cs:行 75
+2020-11-10 12:27:08.0166 - Error - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - System.Data.Entity.Core.EntityException: 例外が発生しました。一時的なエラーの可能性があります。SQL Azure データベースに接続する場合は、SqlAzureExecutionStrategy の使用を検討してください。 ---> System.Data.Entity.Core.EntityException: 基になるプロバイダーが Open で失敗しました。 ---> System.Data.Entity.Core.EntityException: 例外が発生しました。一時的なエラーの可能性があります。SQL Azure データベースに接続する場合は、SqlAzureExecutionStrategy の使用を検討してください。 ---> System.Data.SqlClient.SqlException: サーバーとの接続を正常に確立しましたが、ログイン中にエラーが発生しました。 (provider: Shared Memory Provider, error: 0 - パイプの他端にプロセスがありません。) ---> System.ComponentModel.Win32Exception: パイプの他端にプロセスがありません。
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, DbConnectionPool pool, String accessToken, Boolean applyTransientFaultHandling, SqlAuthenticationProviderManager sqlAuthProviderManager)
+   場所 System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+   場所 System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+   場所 System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   場所 System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+   場所 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   場所 System.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+   場所 System.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal& connection)
+   場所 System.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)
+   場所 System.Data.SqlClient.SqlConnection.TryOpenInner(TaskCompletionSource`1 retry)
+   場所 System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
+   場所 System.Data.SqlClient.SqlConnection.Open()
+   場所 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext](TTarget target, Action`2 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   場所 System.Data.Entity.Infrastructure.Interception.DbConnectionDispatcher.Open(DbConnection connection, DbInterceptionContext interceptionContext)
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.<>c__DisplayClass1.<Execute>b__0()
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   場所 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   場所 System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection(Boolean shouldMonitorTransactions)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   場所 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   場所 RHF.Core.Data.DbSession.Commit(Boolean validateOnSaveEnabled) 場所 C:\MyProjects\source\repos\FrameworkForReadHouse\RHF.Core\RHF.Core\Data\DbSession.cs:行 75
+2020-11-10 13:46:43.9696 - Error - RHF.Business.Models.RHF.M_BookCategory - RHF.Core.Logging.NLogger.WriteInternal - 基になるプロバイダーが ConnectionString で失敗しました。
+2020-11-10 15:07:32.2202 - Info - Logic - RHF.Core.Logging.NLogger.WriteInternal - RegisterMemberInfo BC?始?行
+2020-11-10 15:07:34.0881 - Info - Logic - RHF.Core.Logging.NLogger.WriteInternal - RegisterMemberInfo BC?行完?
+2020-11-10 15:07:40.9920 - Info - Logic - RHF.Core.Logging.NLogger.WriteInternal - RegisterMemberInfo BC?始?行
+2020-11-10 15:07:42.9150 - Info - Logic - RHF.Core.Logging.NLogger.WriteInternal - RegisterMemberInfo BC?行完?
+2020-11-10 15:13:15.4486 - Info - Logic - RHF.Core.Logging.NLogger.WriteInternal - RegisterMemberInfo BC?始?行
+2020-11-10 15:13:17.3943 - Info - Logic - RHF.Core.Logging.NLogger.WriteInternal - RegisterMemberInfo BC?行完?
+2020-11-10 16:46:31.2890 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - M_BookCategory被?例化
+2020-11-10 16:46:33.2150 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - T_Member被?例化
+2020-11-10 16:46:33.2260 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - T_Book被?例化
+2020-11-10 16:46:33.2930 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - R_BookCategory被?例化
+2020-11-10 16:46:42.3392 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - M_BookCategory被?例化
+2020-11-10 16:46:42.5902 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - T_Member被?例化
+2020-11-10 16:46:42.5902 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - T_Book被?例化
+2020-11-10 16:46:42.5972 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - R_BookCategory被?例化
+2020-11-10 16:47:19.1330 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - M_BookCategory被?例化
+2020-11-10 16:47:21.0269 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - T_Member被?例化
+2020-11-10 16:47:21.0329 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - T_Book被?例化
+2020-11-10 16:47:21.0959 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - R_BookCategory被?例化
+2020-11-10 16:47:21.1199 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - M_BookCategory被?例化
+2020-11-10 16:47:21.6459 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - T_Member被?例化
+2020-11-10 16:47:21.6459 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - T_Book被?例化
+2020-11-10 16:47:21.6459 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - R_BookCategory被?例化
+2020-11-10 16:48:19.9516 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - M_BookCategory被?例化
+2020-11-10 16:48:21.8386 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - T_Member被?例化
+2020-11-10 16:48:21.8466 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - T_Book被?例化
+2020-11-10 16:48:21.9106 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - R_BookCategory被?例化
+2020-11-10 16:48:21.9376 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - M_BookCategory被?例化
+2020-11-10 16:48:22.4576 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - T_Member被?例化
+2020-11-10 16:48:22.4576 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - T_Book被?例化
+2020-11-10 16:48:22.4576 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - R_BookCategory被?例化
+2020-11-10 16:48:22.4986 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - M_BookCategory被?例化
+2020-11-10 16:48:22.5416 - Error - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - System.InvalidOperationException: データベースへの変更は正常にコミットされましたが、オブジェクト コンテキストの更新中にエラーが発生しました。ObjectContext の一貫性が損なわれている可能性があります。内部例外メッセージ: 型 'RHF.Business.Models.RHF.M_BookCategory' の複数のエンティティに同じ主キー値が設定されているため、変更を保存または適用できませんでした。明示的に設定された主キー値が一意であることを確認してください。データベースによって生成された主キーがデータベースおよび Entity Framework モデルで正しく構成されていることを確認してください。Database First/Model First の構成には Entity Designer、Code First の構成には 'HasDatabaseGeneratedOption" fluent API または 'DatabaseGeneratedAttribute' を使用してください。 ---> System.InvalidOperationException: 型 'RHF.Business.Models.RHF.M_BookCategory' の複数のエンティティに同じ主キー値が設定されているため、変更を保存または適用できませんでした。明示的に設定された主キー値が一意であることを確認してください。データベースによって生成された主キーがデータベースおよび Entity Framework モデルで正しく構成されていることを確認してください。Database First/Model First の構成には Entity Designer、Code First の構成には 'HasDatabaseGeneratedOption" fluent API または 'DatabaseGeneratedAttribute' を使用してください。
+   場所 System.Data.Entity.Core.Objects.ObjectStateManager.FixupKey(EntityEntry entry)
+   場所 System.Data.Entity.Core.Objects.EntityEntry.AcceptChanges()
+   場所 System.Data.Entity.Core.Objects.ObjectContext.AcceptAllChanges()
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   場所 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   場所 RHF.Core.Data.DbSession.Commit(Boolean validateOnSaveEnabled) 場所 C:\MyProjects\source\repos\FrameworkForReadHouse\RHF.Core\RHF.Core\Data\DbSession.cs:行 73
+2020-11-10 16:48:22.6116 - Error - RHF.Business.Models.RHF.M_BookCategory - RHF.Core.Logging.NLogger.WriteInternal - データベースへの変更は正常にコミットされましたが、オブジェクト コンテキストの更新中にエラーが発生しました。ObjectContext の一貫性が損なわれている可能性があります。内部例外メッセージ: 型 'RHF.Business.Models.RHF.M_BookCategory' の複数のエンティティに同じ主キー値が設定されているため、変更を保存または適用できませんでした。明示的に設定された主キー値が一意であることを確認してください。データベースによって生成された主キーがデータベースおよび Entity Framework モデルで正しく構成されていることを確認してください。Database First/Model First の構成には Entity Designer、Code First の構成には 'HasDatabaseGeneratedOption" fluent API または 'DatabaseGeneratedAttribute' を使用してください。
+2020-11-10 16:48:28.7824 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - M_BookCategory被?例化
+2020-11-10 16:48:28.8004 - Error - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - System.Data.Entity.Infrastructure.DbUpdateException: エントリを更新中にエラーが発生しました。詳細については、内部例外を参照してください。 ---> System.Data.Entity.Core.UpdateException: エントリを更新中にエラーが発生しました。詳細については、内部例外を参照してください。 ---> System.Data.SqlClient.SqlException: 制約 'PK_M_BookCategory' の PRIMARY KEY 違反。オブジェクト 'dbo.M_BookCategory' には重複するキーを挿入できません。重複するキーの値は (1) です。
+ステートメントは終了されました。
+   場所 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   場所 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   場所 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   場所 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   場所 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   場所 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   場所 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   場所 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   場所 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   場所 System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.NonQuery(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   場所 System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.Execute(Dictionary`2 identifierValues, List`1 generatedValues)
+   場所 System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   場所 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   場所 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   場所 RHF.Core.Data.DbSession.Commit(Boolean validateOnSaveEnabled)
+2020-11-10 16:48:28.8004 - Error - RHF.Business.Models.RHF.M_BookCategory - RHF.Core.Logging.NLogger.WriteInternal - エントリを更新中にエラーが発生しました。詳細については、内部例外を参照してください。
+2020-11-10 16:51:44.9736 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - M_BookCategory被?例化
+2020-11-10 16:51:46.8576 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - T_Member被?例化
+2020-11-10 16:51:46.8576 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - T_Book被?例化
+2020-11-10 16:51:46.9326 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - R_BookCategory被?例化
+2020-11-10 16:51:46.9596 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - M_BookCategory被?例化
+2020-11-10 16:51:47.4916 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - T_Member被?例化
+2020-11-10 16:51:47.4916 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - T_Book被?例化
+2020-11-10 16:51:47.4986 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - R_BookCategory被?例化
+2020-11-10 16:52:18.9677 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - M_BookCategory被?例化
+2020-11-10 16:52:20.8117 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - T_Member被?例化
+2020-11-10 16:52:20.8117 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - T_Book被?例化
+2020-11-10 16:52:20.8847 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - R_BookCategory被?例化
+2020-11-10 16:52:20.9097 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - M_BookCategory被?例化
+2020-11-10 16:52:21.4287 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - T_Member被?例化
+2020-11-10 16:52:21.4287 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - T_Book被?例化
+2020-11-10 16:52:21.4287 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - R_BookCategory被?例化
+2020-11-10 16:52:27.6596 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - M_BookCategory被?例化
+2020-11-10 16:52:27.6942 - Error - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - System.InvalidOperationException: データベースへの変更は正常にコミットされましたが、オブジェクト コンテキストの更新中にエラーが発生しました。ObjectContext の一貫性が損なわれている可能性があります。内部例外メッセージ: 型 'RHF.Business.Models.RHF.M_BookCategory' の複数のエンティティに同じ主キー値が設定されているため、変更を保存または適用できませんでした。明示的に設定された主キー値が一意であることを確認してください。データベースによって生成された主キーがデータベースおよび Entity Framework モデルで正しく構成されていることを確認してください。Database First/Model First の構成には Entity Designer、Code First の構成には 'HasDatabaseGeneratedOption" fluent API または 'DatabaseGeneratedAttribute' を使用してください。 ---> System.InvalidOperationException: 型 'RHF.Business.Models.RHF.M_BookCategory' の複数のエンティティに同じ主キー値が設定されているため、変更を保存または適用できませんでした。明示的に設定された主キー値が一意であることを確認してください。データベースによって生成された主キーがデータベースおよび Entity Framework モデルで正しく構成されていることを確認してください。Database First/Model First の構成には Entity Designer、Code First の構成には 'HasDatabaseGeneratedOption" fluent API または 'DatabaseGeneratedAttribute' を使用してください。
+   場所 System.Data.Entity.Core.Objects.ObjectStateManager.FixupKey(EntityEntry entry)
+   場所 System.Data.Entity.Core.Objects.EntityEntry.AcceptChanges()
+   場所 System.Data.Entity.Core.Objects.ObjectContext.AcceptAllChanges()
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   場所 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   場所 RHF.Core.Data.DbSession.Commit(Boolean validateOnSaveEnabled) 場所 C:\MyProjects\source\repos\FrameworkForReadHouse\RHF.Core\RHF.Core\Data\DbSession.cs:行 73
+2020-11-10 16:52:27.7702 - Error - RHF.Business.Models.RHF.M_BookCategory - RHF.Core.Logging.NLogger.WriteInternal - データベースへの変更は正常にコミットされましたが、オブジェクト コンテキストの更新中にエラーが発生しました。ObjectContext の一貫性が損なわれている可能性があります。内部例外メッセージ: 型 'RHF.Business.Models.RHF.M_BookCategory' の複数のエンティティに同じ主キー値が設定されているため、変更を保存または適用できませんでした。明示的に設定された主キー値が一意であることを確認してください。データベースによって生成された主キーがデータベースおよび Entity Framework モデルで正しく構成されていることを確認してください。Database First/Model First の構成には Entity Designer、Code First の構成には 'HasDatabaseGeneratedOption" fluent API または 'DatabaseGeneratedAttribute' を使用してください。
+2020-11-10 16:52:36.3872 - Info - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - M_BookCategory被?例化
+2020-11-10 16:52:36.3872 - Error - RHF.Core.Data.DbSession - RHF.Core.Logging.NLogger.WriteInternal - System.Data.Entity.Infrastructure.DbUpdateException: エントリを更新中にエラーが発生しました。詳細については、内部例外を参照してください。 ---> System.Data.Entity.Core.UpdateException: エントリを更新中にエラーが発生しました。詳細については、内部例外を参照してください。 ---> System.Data.SqlClient.SqlException: 制約 'PK_M_BookCategory' の PRIMARY KEY 違反。オブジェクト 'dbo.M_BookCategory' には重複するキーを挿入できません。重複するキーの値は (1) です。
+ステートメントは終了されました。
+   場所 System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   場所 System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   場所 System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   場所 System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   場所 System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   場所 System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   場所 System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   場所 System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   場所 System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TTarget,TInterceptionContext,TResult](TTarget target, Func`3 operation, TInterceptionContext interceptionContext, Action`3 executing, Action`3 executed)
+   場所 System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.NonQuery(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   場所 System.Data.Entity.Core.Mapping.Update.Internal.DynamicUpdateCommand.Execute(Dictionary`2 identifierValues, List`1 generatedValues)
+   場所 System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.Core.Mapping.Update.Internal.UpdateTranslator.Update()
+   場所 System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesToStore(SaveOptions options, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction)
+   場所 System.Data.Entity.SqlServer.DefaultSqlExecutionStrategy.Execute[TResult](Func`1 operation)
+   場所 System.Data.Entity.Core.Objects.ObjectContext.SaveChangesInternal(SaveOptions options, Boolean executeInExistingTransaction)
+   場所 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   --- 内部例外スタック トレースの終わり ---
+   場所 System.Data.Entity.Internal.InternalContext.SaveChanges()
+   場所 RHF.Core.Data.DbSession.Commit(Boolean validateOnSaveEnabled)
+2020-11-10 16:52:36.3872 - Error - RHF.Business.Models.RHF.M_BookCategory - RHF.Core.Logging.NLogger.WriteInternal - エントリを更新中にエラーが発生しました。詳細については、内部例外を参照してください。

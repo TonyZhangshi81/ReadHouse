@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.Presentation (展示层)", "4.Presentation (展示层)", "{3A990D1B-EB24-425C-81AD-53AEB4F61147}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadHouseOnline", "ReadHouseOnline.csproj", "{30CD52FD-1F93-4991-83F9-C0039A8D2400}"
+EndProject
+Global
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 2
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ReadHouseOnline.csproj
+		SccProjectTopLevelParentUniqueName1 = ReadHouseOnline.sln
+		SccLocalPath1 = .
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30CD52FD-1F93-4991-83F9-C0039A8D2400}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30CD52FD-1F93-4991-83F9-C0039A8D2400}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30CD52FD-1F93-4991-83F9-C0039A8D2400}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30CD52FD-1F93-4991-83F9-C0039A8D2400}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{30CD52FD-1F93-4991-83F9-C0039A8D2400} = {3A990D1B-EB24-425C-81AD-53AEB4F61147}
+	EndGlobalSection
+EndGlobal

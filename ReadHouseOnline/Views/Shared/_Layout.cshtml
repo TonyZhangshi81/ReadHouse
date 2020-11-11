@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width" />
+	<title>@ViewBag.Title</title>
+	<link rel="stylesheet" href="@Url.Content("~/Content/css/bootstrap.min.css")" type="text/css">
+	<link rel="stylesheet" href="@Url.Content("~/Content/css/extends/login.css")" type="text/css">
+	<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-2.2.3.min.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/Scripts/jquery.validate.js")"></script>
+	@RenderSection("head", required: false)
+</head>
+<body>
+	@RenderBody()
+
+	@RenderSection("scripts", required: false)
+</body>
+</html>

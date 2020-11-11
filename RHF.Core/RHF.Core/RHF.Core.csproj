@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9D85B08E-C43F-4D75-A712-B521EC5675E3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RHF.Core</RootNamespace>
+    <AssemblyName>RHF.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Common.Logging, Version=3.3.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Common.Logging\Common.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\NLog\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BusinessLogic\ExecLogicException.cs" />
+    <Compile Include="BusinessLogic\ILogic.cs" />
+    <Compile Include="BusinessLogic\ILogicFactory.cs" />
+    <Compile Include="BusinessLogic\ILogicParameterBase.cs" />
+    <Compile Include="BusinessLogic\LogicAttribute.cs" />
+    <Compile Include="BusinessLogic\LogicBase.cs" />
+    <Compile Include="BusinessLogic\LogicExecuteHelper.cs" />
+    <Compile Include="BusinessLogic\LogicFactory.cs" />
+    <Compile Include="BusinessLogic\LogicParameterBase.cs" />
+    <Compile Include="BusinessLogic\LogicParameterAttribute.cs" />
+    <Compile Include="BusinessLogic\LogicParameterInnerTransfer.cs" />
+    <Compile Include="Composition\Composer.cs" />
+    <Compile Include="Composition\ComposerAttribute.cs" />
+    <Compile Include="Composition\ComposerFactory.cs" />
+    <Compile Include="Composition\MetaData\ILogicMetaData.cs" />
+    <Compile Include="Composition\MetaData\ILogicParameterMetaData.cs" />
+    <Compile Include="Constants\MessageLevel.cs" />
+    <Compile Include="Data\DbSession.cs" />
+    <Compile Include="Data\EFContextFactory.cs" />
+    <Compile Include="Data\EFDbContext.cs" />
+    <Compile Include="Data\IDbSession.cs" />
+    <Compile Include="Data\IEFContextFactory.cs" />
+    <Compile Include="Data\IRepositoryMetaType.cs" />
+    <Compile Include="Composition\MetaData\IRepositoryMetaData.cs" />
+    <Compile Include="Composition\MetaData\ITableNameMetaData.cs" />
+    <Compile Include="Data\RepositoryAttribute.cs" />
+    <Compile Include="Logging\LogUtil.cs" />
+    <Compile Include="Logging\NLogger.cs" />
+    <Compile Include="Logging\NLogLoggerFactoryAdapter.cs" />
+    <Compile Include="Messages\IMessage.cs" />
+    <Compile Include="Messages\Message.cs" />
+    <Compile Include="Messages\MessageCollection.cs" />
+    <Compile Include="Messages\MessageItem.cs" />
+    <Compile Include="Messages\MessageUtil.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Util\EncryptHelper.cs" />
+    <Compile Include="Util\ReflectionUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

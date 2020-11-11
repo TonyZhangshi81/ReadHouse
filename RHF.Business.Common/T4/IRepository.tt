@@ -1,0 +1,36 @@
+﻿<#@ template language="C#" debug="false" hostspecific="true"#>
+<#@ include file="EF.Utility.CS.ttinclude"#><#@
+ output extension=".txt"#>
+ 
+<#
+
+CodeGenerationTools code = new CodeGenerationTools(this);
+MetadataLoader loader = new MetadataLoader(this);
+CodeRegion region = new CodeRegion(this, 1);
+MetadataTools ef = new MetadataTools(this);
+
+string inputFile = @"..\..\..\FrameworkForReadHouse\RHF.Business.Models\RHF\DataModel.edmx";
+
+EdmItemCollection ItemCollection = loader.CreateEdmItemCollection(inputFile);
+string namespaceName = code.VsNamespaceSuggestion();
+
+EntityFrameworkTemplateFileManager fileManager = EntityFrameworkTemplateFileManager.Create(this);
+
+#>
+using RHF.Business.Common.DataAccess;
+using RHF.Business.Models.RHF;
+
+namespace RHF.Business.Common.IDAL
+{
+<#
+foreach (EntityType entity in ItemCollection.GetItems<EntityType>().OrderBy(e => e.Name))
+{
+#>	
+	/// <summary>
+	/// <#=entity.Name#>表
+	/// </summary>
+    public partial interface I<#=entity.Name.Replace("_", string.Empty)#>Repository : IRepositoryBase<<#=entity.Name#>>
+    {         
+    }
+<#}#>
+}

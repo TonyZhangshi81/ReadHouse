@@ -1,0 +1,3 @@
+﻿
+Data Source=DESKTOP-OO2888A\SQL2012;Initial Catalog=RHFDBNunit;User ID=sa;Password=Tony19811031;
+加密后: SW3Leeu0h0JZuFupCMBllB4BtjCHZ4/EJ0Dv8Jlcu+nwfzHWrUYD5n1PSaCpLNTxpurg/sb3uoU5UbjcYUaKQarzH6AJ5TrQhAoux/GgFVQoOYEjqrINmkC0OqFf5GwBgFSrRTF2AqU=

@@ -1,0 +1,65 @@
+﻿@using RHF.Business.Models.RHF;
+<script type="text/javascript" src="@Url.Content("~/Scripts/extends/RHF.Login.js")"></script>
+<script type="text/javascript">
+	$(document).ready(function () {
+		$("#divCarouselArea").fadeIn(600, function () {
+			$("#divCarousel").carousel('cycle');
+		});
+
+		RHF.Login.imageProgramaDisplay();
+	});
+</script>
+
+<div id="divCarouselArea" class="row" style="display: none;">
+	<div class="col-xs-1 col-md-1"></div>
+	<div class="col-xs-10 col-md-10 center-block">
+		<div id="divCarousel" class="carousel slide">
+			<!-- 轮播（Carousel）指标 -->
+			<ol class="carousel-indicators">
+				<li data-target="#divCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#divCarousel" data-slide-to="1"></li>
+				<li data-target="#divCarousel" data-slide-to="2"></li>
+			</ol>
+			<!-- 轮播（Carousel）项目 -->
+			<div class="carousel-inner">
+				<div class="item active">
+					@foreach (var item in ViewData["active"] as List<T_Book>)
+	 {
+						<div class="imageTag">
+							<div class="tagItem">
+								<a href="###">
+									<img src="@Url.Content(item.Description)">
+								</a>
+							</div>
+						</div>
+	 }
+				</div>
+				<div class="item">
+					@foreach (var item in ViewData["carousel1"] as List<T_Book>)
+	 {
+						<div class="imageTag">
+							<div class="tagItem">
+								<a href="###">
+									<img src="@Url.Content(item.Description)">
+								</a>
+							</div>
+						</div>
+	 }
+				</div>
+				<div class="item">
+					@foreach (var item in ViewData["carousel2"] as List<T_Book>)
+	 {
+						<div class="imageTag">
+							<div class="tagItem">
+								<a href="###">
+									<img src="@Url.Content(item.Description)">
+								</a>
+							</div>
+						</div>
+	 }
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-1 col-md-1"></div>
+</div>

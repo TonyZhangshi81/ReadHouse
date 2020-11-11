@@ -1,0 +1,23 @@
+﻿<#@ template debug="true" hostspecific="false" language="C#" #>
+<#@ assembly name="System" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(TargetDir)\RHF.Core.dll"  #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="RHF.Core.Util" #>
+<#@ output extension=".txt" #>
+
+<#
+
+string dataSource = @"DESKTOP-OO2888A\SQL2012";
+string initialCatalog = "RHFDBNunit";
+string userId = "sa";
+string password = "Tony19811031";
+
+string encrypt = EncryptHelper.DESEncrypt(string.Format("Data Source={0};Initial Catalog={1};User ID={2};Password={3};", dataSource, initialCatalog, userId, password));
+string decrypt = EncryptHelper.DESDecrypt(encrypt);
+
+#>
+<#=decrypt#>
+加密后: <#=encrypt#>

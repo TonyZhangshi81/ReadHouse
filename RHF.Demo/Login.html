@@ -1,0 +1,335 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>读书小站</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/extends/login.css">
+	<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/extends/RHF.Login.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("#logoImg").fadeIn(2000, function () {
+				$("#divCarouselArea").fadeIn(600, function () {
+					$("#divCarousel").carousel('cycle');
+				})
+			});
+
+			$("#btnLogin").click(function () {
+				var password = $("#inputPassword").val();
+				var mail = $("#inputEmail").val();
+
+				if (password == "" || mail == "") {
+					return false;
+				}
+
+				if (mail == "111") {
+					window.location.href = 'Main.html';
+				}
+				if (mail == "222") {
+					window.location.href = 'Main.html';
+				}
+			});
+		});
+	</script>
+</head>
+<body onload="RHF.Login.imageProgramaDisplay();">
+	<div class="container">
+		<div style="padding-top: 30px;" class="row">
+			<div class="col-xs-3 col-md-2"></div>
+			<div class="col-xs-6 col-md-3">
+				<img id="logoImg" class="logoImg" src="./image/logobg.png">
+			</div>
+			<div class="col-xs-3 col-md-7"></div>
+		</div>
+		<div style="padding-top: 5px;" class="row">
+			<div class="col-xs-2 col-md-2"></div>
+			<div class="col-xs-2 col-md-2">
+				<p class="text-right">
+					<label class="text-muted h5" for="exampleInputEmail">账号</label>
+				</p>
+			</div>
+			<div class="col-xs-3 col-md-3">
+				<input type="email" class="form-control" id="inputEmail" placeholder="邮箱/用户名">
+			</div>
+			<div class="col-xs-5 col-md-5"></div>
+		</div>
+		<div style="padding-top: 3px;" class="row">
+			<div class="col-xs-2 col-md-2"></div>
+			<div class="col-xs-2 col-md-2">
+				<p class="text-right">
+					<label class="text-muted h5" for="exampleInputPassword">密码</label>
+				</p>
+			</div>
+			<div class="col-xs-2 col-md-2">
+				<input type="password" class="form-control" id="inputPassword" placeholder="密码">
+			</div>
+			<div class="col-xs-6 col-md-6"></div>
+		</div>
+		<div class="row">
+			<div class="col-xs-4 col-md-4"></div>
+			<div class="col-xs-4 col-md-4">
+				<div class="checkbox">
+					<label>
+						<input type="checkbox">下次自动登录
+					</label>
+				</div>
+			</div>
+			<div class="col-xs-4 col-md-4"></div>
+		</div>
+		<div class="row">
+			<div class="col-xs-4 col-md-4"></div>
+			<div class="col-xs-4 col-md-4">
+				<button type="submit" id="btnLogin" class="btn btn-success">登录</button>
+			</div>
+			<div class="col-xs-4 col-md-4"></div>
+		</div>
+		<div class="row">
+			<div class="col-xs-4 col-md-4"></div>
+			<div class="col-xs-4 col-md-4">
+				<h6 class="text-success">&gt; 还没有账号？<a href="###">立即注册</a></h6>
+			</div>
+			<div class="col-xs-4 col-md-4"></div>
+		</div>
+		<div id="divCarouselArea" class="row" style="display: none;">
+			<div class="col-xs-1 col-md-1"></div>
+			<div class="col-xs-10 col-md-10 center-block">
+				<div id="divCarousel" class="carousel slide">
+					<!-- 轮播（Carousel）指标 -->
+					<ol class="carousel-indicators">
+						<li data-target="#divCarousel" data-slide-to="0" class="active"></li>
+						<li data-target="#divCarousel" data-slide-to="1"></li>
+						<li data-target="#divCarousel" data-slide-to="2"></li>
+					</ol>
+					<!-- 轮播（Carousel）项目 -->
+					<div class="carousel-inner">
+						<div class="item active">
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/001.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/002.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/003.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/004.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/005.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/006.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/007.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/008.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/009.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/010.jpg">
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/011.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/012.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/013.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/014.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/015.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/008.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/016.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/017.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/018.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/019.jpg">
+									</a>
+								</div>
+							</div>
+						</div>
+						<div class="item">
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/023.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/022.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/014.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/016.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/007.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/008.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/019.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/005.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/008.jpg">
+									</a>
+								</div>
+							</div>
+							<div class="imageTag">
+								<div class="tagItem">
+									<a href="###">
+										<img src="./image/books/006.jpg">
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-1 col-md-1"></div>
+		</div>
+		<div class="modal-footer">
+			<h6>@2016 - 2018 RHF.com, all right reserved</h6>
+		</div>
+	</div>
+</body>
+</html>

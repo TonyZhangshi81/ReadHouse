@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DataModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="DataModelStoreContainer">
+    <EntitySet Name="T_Member" EntityType="DataModel.Store.T_Member" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="T_LoginLog" EntityType="DataModel.Store.T_LoginLog" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="T_Book" EntityType="DataModel.Store.T_Book" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="M_BookCategory" EntityType="DataModel.Store.M_BookCategory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="R_BookCategory" EntityType="DataModel.Store.R_BookCategory" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="T_Member">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="32" />
+    <Property Name="NickName" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="Email" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="RoleType" Type="smallint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_LoginLog">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IpAddress" Type="nvarchar" Nullable="false" MaxLength="20" />
+    <Property Name="MemberID" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="T_Book">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" Nullable="false" MaxLength="500" />
+    <Property Name="MemberID" Type="bigint" Nullable="false" />
+    <Property Name="Image" Type="varchar" Nullable="true" MaxLength="500" />
+    <Property Name="CreateDateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="M_BookCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="TypeName" Type="nvarchar" Nullable="false" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="R_BookCategory">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BookID" Type="bigint" Nullable="false" />
+    <Property Name="BookCategoryID" Type="int" Nullable="false" />
+  </EntityType>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="DataModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="DataModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="T_Member" EntityType="DataModel.T_Member" />
+          <EntitySet Name="T_LoginLog" EntityType="DataModel.T_LoginLog" />
+          <EntitySet Name="T_Book" EntityType="DataModel.T_Book" />
+          <EntitySet Name="M_BookCategory" EntityType="DataModel.M_BookCategory" />
+          <EntitySet Name="R_BookCategory" EntityType="DataModel.R_BookCategory" />
+        </EntityContainer>
+        <EntityType Name="T_Member">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="32" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="NickName" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="Email" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Type="Int16" Name="RoleType" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_LoginLog">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="IpAddress" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+          <Property Type="Int64" Name="MemberID" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_Book">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+          <Property Type="Int64" Name="MemberID" Nullable="false" />
+          <Property Type="String" Name="Image" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Type="DateTime" Name="CreateDateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="M_BookCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="None" />
+          <Property Type="String" Name="TypeName" Nullable="false" MaxLength="30" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="R_BookCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int64" Name="BookID" Nullable="false" />
+          <Property Type="Int32" Name="BookCategoryID" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DataModelStoreContainer" CdmEntityContainer="DataModelContainer">
+    <EntitySetMapping Name="T_Member">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.T_Member)">
+        <MappingFragment StoreEntitySet="T_Member">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="NickName" ColumnName="NickName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="RoleType" ColumnName="RoleType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_LoginLog">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.T_LoginLog)">
+        <MappingFragment StoreEntitySet="T_LoginLog">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_Book">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.T_Book)">
+        <MappingFragment StoreEntitySet="T_Book">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="CreateDateTime" ColumnName="CreateDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="M_BookCategory">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.M_BookCategory)">
+        <MappingFragment StoreEntitySet="M_BookCategory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="R_BookCategory">
+      <EntityTypeMapping TypeName="IsTypeOf(DataModel.R_BookCategory)">
+        <MappingFragment StoreEntitySet="R_BookCategory">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="BookID" ColumnName="BookID" />
+          <ScalarProperty Name="BookCategoryID" ColumnName="BookCategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="なし" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

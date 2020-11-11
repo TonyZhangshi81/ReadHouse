@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup>
+		<!-- 実行環境のルートディレクトリ -->
+		<RootDir>$(MSBuildProjectDirectory)</RootDir>
+		<!-- ビルドするソリューションファイルの一覧 -->
+		<Solution_Lib_Common>$(RootDir)\Common\Common.sln</Solution_Lib_Common>
+		<Solution_Lib_CommonKokyaku>$(RootDir)\CommonKokyaku\Customer.sln</Solution_Lib_CommonKokyaku>
+		<Solution_Lib_CommonApproval>$(RootDir)\CommonApproval\Approval.sln</Solution_Lib_CommonApproval>
+		<Solution_Lib_CommonBaddebtprovision>$(RootDir)\CommonBaddebtprovision\Baddebtprovision.sln</Solution_Lib_CommonBaddebtprovision>
+		<Solution_Lib_CommonGuarantee>$(RootDir)\CommonGuarantee\Guarantee.sln</Solution_Lib_CommonGuarantee>
+		<Solution_Lib_CommonMortgage>$(RootDir)\CommonMortgage\Mortgage.sln</Solution_Lib_CommonMortgage>
+		<Solution_Lib_CommonPortal>$(RootDir)\CommonPortal\Portal.sln</Solution_Lib_CommonPortal>
+		<Solution_Lib_CommonSalesForce>$(RootDir)\CommonSalesForce\SalesForce.sln</Solution_Lib_CommonSalesForce>
+		<Solution_Web>$(MSBuildProjectDirectory)\Web\RiskTaker\RiskTaker.sln</Solution_Web>
+		
+		<!-- ビルドする際の構成名：Debug, Releaseが一般的 -->
+		<Build_Configuration>Debug</Build_Configuration>
+	</PropertyGroup>
+	
+	<Target Name="BuildAndDebugAll">
+		<CallTarget Targets="Build" />
+    </Target>
+    
+    <Target Name="Build">
+		<CallTarget Targets="Build_Lib_Common" />
+		<CallTarget Targets="Build_Lib_SubSystem" />
+		<CallTarget Targets="Build_Web" />
+		
+	</Target>
+	
+	<Target Name="Build_Lib_Common">
+		<MSBuild Projects="$(Solution_Lib_Common)" Properties="Configuration=$(Build_Configuration);" Targets="Clean;Rebuild" />
+	</Target>
+	<Target Name="Build_Lib_SubSystem">
+		<MSBuild Projects="$(Solution_Lib_CommonKokyaku)" Properties="Configuration=$(Build_Configuration);" Targets="Clean;Rebuild" />
+		<MSBuild Projects="$(Solution_Lib_CommonApproval)" Properties="Configuration=$(Build_Configuration);" Targets="Clean;Rebuild" />
+		<MSBuild Projects="$(Solution_Lib_CommonBaddebtprovision)" Properties="Configuration=$(Build_Configuration);" Targets="Clean;Rebuild" />
+		<MSBuild Projects="$(Solution_Lib_CommonGuarantee)" Properties="Configuration=$(Build_Configuration);" Targets="Clean;Rebuild" />
+		<MSBuild Projects="$(Solution_Lib_CommonMortgage)" Properties="Configuration=$(Build_Configuration);" Targets="Clean;Rebuild" />
+		<MSBuild Projects="$(Solution_Lib_CommonPortal)" Properties="Configuration=$(Build_Configuration);" Targets="Clean;Rebuild" />
+		<MSBuild Projects="$(Solution_Lib_CommonSalesForce)" Properties="Configuration=$(Build_Configuration);" Targets="Clean;Rebuild" />
+	</Target>
+	
+	<!-- Webプロジェクトのビルド -->
+	<Target Name="Build_Web">
+		<MSBuild Projects="$(Solution_Web)" Properties="Configuration=$(Build_Configuration);" Targets="Clean;Rebuild" />
+	</Target>
+</Project>

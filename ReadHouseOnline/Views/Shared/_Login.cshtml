@@ -1,0 +1,18 @@
+﻿@using System.Web.Mvc.Html;
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@RenderSection("head", required: false)
+
+<div class="container">
+	@RenderBody()
+
+	@{ Html.RenderAction("Index", "CarouselArea"); }
+
+	<div class="modal-footer">
+		<h6>@Html.Raw("@2016 - 2018 RHF.com, all right reserved")</h6>
+	</div>
+
+	@RenderSection("scripts", required: false)
+</div>

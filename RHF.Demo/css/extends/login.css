@@ -1,0 +1,77 @@
+﻿
+/* 圖片放大鏡特效 原始大小放置單元
+	(相對位置) */
+div.imageTag {
+	float: left;
+	width: 90px;
+	height: 150px;
+	position: relative;
+	top: 100px;
+}
+
+	/* 圖片放大鏡特效 原始大小放置單元
+(絕對位置設置與外層相對位置的偏差而產生圖片浮動效果) */
+	div.imageTag .tagItem {
+		width: 90px;
+		height: 150px;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		overflow: hidden;
+	}
+
+/* 圖片放大鏡特效 光標移入后變換狀態 */
+.curr {
+	cursor: pointer;
+}
+
+/* 圖片放大鏡特效 光標移出后恢復指針狀態 */
+.not_curr {
+	cursor: default;
+}
+
+/* logo圖片樣式 */
+.logoImg {
+	width: 200px;
+	display: none;
+}
+
+/* 圖片滾動特效 區域與輪播項目設定區域的高度設定
+	(以配合圖片放大后完整顯示) */
+div.divCarousel, div.carousel-inner {
+	height: 240px;
+}
+
+/* 圖片滾動特效 輪播指標位置設定 */
+ol.carousel-indicators {
+	top: 190px;
+}
+
+/* 輪播項目設定區域中的圖片間距 */
+div.tagItem > a {
+	height: 100%;
+	width: 100%;
+	padding-left: 5px;
+}
+
+/* 輪播項目設定區域中的圖片間距 */
+div.tagItem img {
+	height: 100%;
+	/*width: 100%;*/
+}
+
+/* 頁面背景圖片設定(待完成) */
+body {
+	background-size: auto;
+	background-color: rgb(215, 211, 211);
+}
+
+.center {
+  width: auto;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+.text-center {
+  text-align: center;
+}

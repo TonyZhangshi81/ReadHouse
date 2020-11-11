@@ -1,0 +1,118 @@
+﻿@using System.Web.Mvc.Html;
+@using RHF.Business.Models.RHF;
+@model T_Member
+@{
+	ViewBag.Title = "读书小站";
+	Layout = "~/Views/Shared/_Login.cshtml";
+}
+
+@section head 
+{
+	<script type="text/javascript" src="@Url.Content("~/Scripts/extends/RHF.Login.js")"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$("#logoImg").fadeIn(3000);
+
+			formValidate();
+		});
+
+		var formValidate = function () {
+			$("#loginForm").validate({
+				focusInvalid: false,
+				rules: {
+					Email: {
+						required: true,
+						email: true
+					},
+					Password: {
+						required: true
+					}
+				},
+				messages: {
+					Email: {
+						required: "用户名不能为空",
+						email: "E-Mail格式不正确"
+					},
+					Password: {
+						required: "密码不能为空"
+					}
+				},
+				errorPlacement: function (error, element) {
+					error.appendTo(element.parent().next().next());
+				}
+			})
+		};
+	</script>
+}
+
+<div class="container">
+	@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { id = "loginForm" }))
+ {
+		@Html.AntiForgeryToken()
+		@Html.ValidationSummary(true)
+
+		<div style="padding-top: 30px;" class="row">
+			<div class="col-xs-3 col-md-2"></div>
+			<div class="col-xs-6 col-md-3">
+				<img id="logoImg" class="logoImg" src="~/Content/image/logobg.png">
+			</div>
+			<div class="col-xs-3 col-md-7"></div>
+		</div>
+		<div style="padding-top: 5px;" class="row">
+			<div class="col-xs-2 col-md-2"></div>
+			<div class="col-xs-2 col-md-2">
+				<p class="text-right">
+					<label class="text-muted h5" for="Email">账号</label>
+				</p>
+			</div>
+			<div class="col-xs-3 col-md-3">
+				@Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "邮箱/用户名", type = "email" })
+			</div>
+			<div class="col-xs-5 col-md-5">
+					@Html.ValidationMessageFor(m => m.Email)
+			</div>
+		</div>
+		<div style="padding-top: 3px;" class="row">
+			<div class="col-xs-2 col-md-2"></div>
+			<div class="col-xs-2 col-md-2">
+				<p class="text-right">
+					<label class="text-muted h5" for="Password">密码</label>
+				</p>
+			</div>
+			<div class="col-xs-2 col-md-2">
+				@Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "密码" })
+			</div>
+			<div class="col-xs-6 col-md-6">
+					@Html.ValidationMessageFor(m => m.Password)
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-4 col-md-4"></div>
+			<div class="col-xs-4 col-md-4">
+				<div class="checkbox">
+					<label>
+						@Html.CheckBox("chkNext", false, new { @class = "checkBox" })
+						下次自动登录
+					</label>
+				</div>
+			</div>
+			<div class="col-xs-4 col-md-4"></div>
+		</div>
+		<div class="row">
+			<div class="col-xs-4 col-md-4"></div>
+			<div class="col-xs-4 col-md-4">
+				<button type="submit" id="btnLogin" class="btn btn-success">登录</button>
+			</div>
+			<div class="col-xs-4 col-md-4"></div>
+		</div>
+ }
+	<div class="row">
+		<div class="col-xs-4 col-md-4"></div>
+		<div class="col-xs-4 col-md-4">
+			<h6 class="text-success">&gt; 还没有账号？
+					<a href="###">立即注册</a>
+			</h6>
+		</div>
+		<div class="col-xs-4 col-md-4"></div>
+	</div>
+</div>
