@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Specialized;
+using System.IO;
 
 namespace RHF.Core.Logging
 {
@@ -17,6 +18,12 @@ namespace RHF.Core.Logging
 		{
 			string configType = properties["configType"];
 			string configFile = properties["configFile"];
+
+			// 相對路徑的對應
+			if (configFile.StartsWith("~/") || configFile.StartsWith("~\\"))
+			{
+				configFile = Path.Combine(AppDomain.CurrentDomain.BaseDirectory.TrimEnd('/', '\\'), configFile.Substring(2));
+			}
 
 			switch (configType.ToUpper())
 			{

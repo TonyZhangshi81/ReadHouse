@@ -14,8 +14,21 @@
 	@RenderSection("head", required: false)
 </head>
 <body>
-	@RenderBody()
+    @RenderBody()
 
-	@RenderSection("scripts", required: false)
+    <div class="modal fade bd-example-modal-sm" id="myModal" role="dialog" data-backdrop="false" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <p class="text-center mb-0">
+                    <h2>
+                        <i class="fa fa-check-circle text-success mr-3" aria-hidden="true"></i>
+                        <span id="spanMsg"></span>
+                    </h2>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    @RenderSection("scripts", required: false)
 </body>
 </html>

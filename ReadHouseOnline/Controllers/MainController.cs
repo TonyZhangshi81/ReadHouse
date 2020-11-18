@@ -1,20 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using System.Web.Security;
 
 namespace ReadHouseOnline.Controllers
 {
-    public class MainController : Controller
-    {
-        //
-        // GET: /Main/
+	/// <summary>
+	/// 
+	/// </summary>
+	[Authorize]
+	public class MainController : Controller
+	{
+		//
+		// GET: /Main/
 
-        public ActionResult Index()
-        {
-            return View();
-        }
+		public ActionResult Index()
+		{
+			return View();
+		}
 
-    }
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <returns></returns>
+		public ActionResult LogOut()
+		{
+			// 通過Forms驗證來刪除Cookie
+			FormsAuthentication.SignOut();
+
+			return Redirect(Url.Action("Index", "Main"));
+		}
+	}
 }

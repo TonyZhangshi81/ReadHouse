@@ -11,7 +11,7 @@
 <#
 
 string dataSource = @"DESKTOP-OO2888A\SQL2012";
-string initialCatalog = "RHFDBNunit";
+string initialCatalog = "RHFDB";
 string userId = "sa";
 string password = "Tony19811031";
 

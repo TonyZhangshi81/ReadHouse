@@ -20,7 +20,7 @@ namespace RHF.Business.BLL.Implementations
 		protected override bool Execute(LoginBcp bcp)
 		{
 			var tMember = this.DbContext.GetRepository<ITMemberRepository>();
-			bcp.IsLogin = tMember.Entities.Any(d => d.Email.Equals(bcp.UserName) && d.Password.Equals(bcp.Password));
+			bcp.IsLogin = tMember.Entities.Any(d => d.Email.Equals(bcp.EMail) && d.Password.Equals(bcp.Password));
 
 			if (!bcp.IsLogin)
 			{

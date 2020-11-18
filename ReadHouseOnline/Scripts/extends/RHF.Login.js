@@ -1,6 +1,23 @@
 ﻿var RHF = RHF || {};
 
 RHF.Login = RHF.Login || (function () {
+
+	// 信息顯示
+	showMessage = function (msg, fixed = false) {
+		if (msg) {
+			$("#spanMsg").text(msg);
+		}
+
+		$('#myModal').modal('show');
+
+		// 非固定狀態下提示信息自動關閉
+		if (!fixed) {
+			setTimeout(function () {
+				$("#myModal").modal("hide")
+			}, 1200);
+		}
+	},
+
 	/* 圖片滾動特效腳本 */
 	imageProgramaDisplay = function () {
 		$(".tagItem").each(function (i, target) {
@@ -43,6 +60,7 @@ RHF.Login = RHF.Login || (function () {
 	};
 
 	return {
+		showMessage: showMessage,
 		imageProgramaDisplay: imageProgramaDisplay
 	};
 

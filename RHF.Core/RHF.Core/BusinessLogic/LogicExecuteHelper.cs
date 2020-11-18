@@ -49,10 +49,26 @@ namespace RHF.Core.BusinessLogic
 		/// <summary>
 		/// 
 		/// </summary>
+		[Import(typeof(ILogicFactory))]
+		public LogicFactory LogicFactory { get; set; }
+
+		/// <summary>
+		/// 
+		/// </summary>
 		public LogicExecuteHelper()
 		{
 			this._composer = ComposerFactory.GetComposer(this.GetType().Assembly);
 			this.ComposeThis();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="logicId"></param>
+		/// <returns></returns>
+		public virtual ILogic CreateLogic(string logicId)
+		{
+			return LogicFactory.CreateLogic(logicId);
 		}
 	}
 }

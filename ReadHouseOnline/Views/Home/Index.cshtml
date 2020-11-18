@@ -19,26 +19,31 @@
 		var formValidate = function () {
 			$("#loginForm").validate({
 				focusInvalid: false,
+                onblur: true,
+				focusCleanup: true,
+                errorElement: "span",
 				rules: {
 					Email: {
 						required: true,
 						email: true
 					},
 					Password: {
-						required: true
+						required: true,
+                        rangelength: [6, 8],
 					}
 				},
 				messages: {
 					Email: {
-						required: "用户名不能为空",
-						email: "E-Mail格式不正确"
+						required: "用戶名不能為空",
+						email: "E-Mail格式不正確"
 					},
 					Password: {
-						required: "密码不能为空"
+                        required: "密碼不能為空",
+                        rangelength: "密碼長度為6-8位"
 					}
 				},
 				errorPlacement: function (error, element) {
-					error.appendTo(element.parent().next().next());
+					error.appendTo(element.parent().next());
 				}
 			})
 		};

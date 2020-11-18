@@ -1,6 +1,11 @@
-﻿using RHF.Business.Models.RHF;
+﻿using RHF.Business.BLL.Parameters;
+using RHF.Business.Models.RHF;
+using RHF.Core.BusinessLogic;
 using System;
+using System.Linq;
+using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace ReadHouseOnline.Controllers
 {
@@ -9,6 +14,26 @@ namespace ReadHouseOnline.Controllers
 	/// </summary>
 	public class HomeController : Controller
 	{
+		/// <summary>
+		/// 
+		/// </summary>
+		private LogicExecuteHelper _LogicHelper;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		protected LogicExecuteHelper LogicHelper
+		{
+			get
+			{
+				if (_LogicHelper == null)
+				{
+					_LogicHelper = new LogicExecuteHelper();
+				}
+				return _LogicHelper;
+			}
+		}
+
 		/// <summary>
 		/// 
 		/// </summary>
@@ -27,26 +52,32 @@ namespace ReadHouseOnline.Controllers
 		[HttpPost]
 		public ActionResult Index(T_Member member)
 		{
-			/*
-			if (String.IsNullOrEmpty(member.Email))
-			{
-				ModelState.AddModelError("Email", "用户名不能为空");
-			}
-			if (String.IsNullOrEmpty(member.Password))
-			{
-				ModelState.AddModelError("Password", "密码不能为空");
-			}
-			if ("password".Equals(member.Password))
-			{
-				ModelState.AddModelError("Password", "密码不能为password");
-			}
-			 * */
-
 			if (ModelState.IsValid)
 			{
-				if ("my@test.com".Equals(member.Email) && "111".Equals(member.Password))
+				var logic = LogicHelper.CreateLogic("Login");
+				var bcp = (LoginBcp)LogicHelper.LogicFactory.CreateParameter("Login");
+
+				bcp.EMail = member.Email;
+				bcp.Password = member.Password;
+				logic.Execute(bcp);
+
+				if (bcp.IsLogin)
 				{
+					var authTicket = new FormsAuthenticationTicket(1, member.Email, DateTime.Now, DateTime.Now.AddMinutes(10), true, "/");
+
+					string encryptedTicket = FormsAuthentication.Encrypt(authTicket);
+
+					var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket)
+					{
+						HttpOnly = true
+					};
+					Response.Cookies.Add(authCookie);
+
 					return Redirect(Url.Action("Index", "Main"));
+				}
+				else
+				{
+					return JavaScript(@"RHF.Login.showMessage('" + bcp.Messages.ElementAt(0).Message + "');");
 				}
 			}
 

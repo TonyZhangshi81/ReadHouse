@@ -1,5 +1,10 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
+using System.ComponentModel.Composition.Hosting;
+using System.ComponentModel.Composition.Primitives;
+using System.IO;
 using System.Reflection;
 
 namespace RHF.Core.Composition
@@ -46,6 +51,25 @@ namespace RHF.Core.Composition
 		}
 
 		private static readonly object Sync = new object();
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="path"></param>
+		/// <remarks>
+		/// 
+		/// </remarks>
+		/// <returns></returns>
+		public static IEnumerable<ComposablePartCatalog> GetCatalog(string path)
+		{
+			foreach (FileInfo fi in from _ in new DirectoryInfo(path).GetFiles("RHF.*")
+									where _.Name.ToLower().EndsWith(".dll")
+									orderby _.Name.Length descending
+									select _)
+			{
+				yield return new DirectoryCatalog(path, fi.Name);
+			}
+		}
 
 		/// <summary>
 		/// 

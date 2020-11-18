@@ -75,3 +75,7 @@ body {
 .text-center {
   text-align: center;
 }
+
+span.error{
+	color:red;
+}
